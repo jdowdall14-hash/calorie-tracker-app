@@ -1,0 +1,189 @@
+<!doctype html>
+<!-- FAT FIGHTERS v1.2 | single-file PWA/Home Screen release | master based on v1.1 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#090b10" />
+<meta name="application-name" content="FAT FIGHTERS" />
+<meta name="apple-mobile-web-app-title" content="FAT FIGHTERS" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22FAT%20FIGHTERS%22%2C%22short_name%22%3A%22FAT%20FIGHTERS%22%2C%22description%22%3A%22A%20funny%20calorie%20tracker%20for%20food%2C%20drinks%20and%20weight%20loss.%22%2C%22start_url%22%3A%22%2F%22%2C%22scope%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22portrait%22%2C%22background_color%22%3A%22%23090b10%22%2C%22theme_color%22%3A%22%23090b10%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%253D%2522http%253A%252F%252Fwww.w3.org%252F2000%252Fsvg%2522%2520viewBox%253D%25220%25200%2520512%2520512%2522%253E%253Cdefs%253E%253ClinearGradient%2520id%253D%2522g%2522%2520x1%253D%25220%2522%2520y1%253D%25220%2522%2520x2%253D%25221%2522%2520y2%253D%25221%2522%253E%253Cstop%2520offset%253D%25220%2522%2520stop-color%253D%2522%2523fb7185%2522%252F%253E%253Cstop%2520offset%253D%25221%2522%2520stop-color%253D%2522%2523fbbf24%2522%252F%253E%253C%252FlinearGradient%253E%253C%252Fdefs%253E%253Crect%2520width%253D%2522512%2522%2520height%253D%2522512%2522%2520rx%253D%2522112%2522%2520fill%253D%2522%2523090b10%2522%252F%253E%253Ccircle%2520cx%253D%2522256%2522%2520cy%253D%2522258%2522%2520r%253D%2522178%2522%2520fill%253D%2522url%2528%2523g%2529%2522%252F%253E%253Ccircle%2520cx%253D%2522176%2522%2520cy%253D%2522206%2522%2520r%253D%252242%2522%2520fill%253D%2522%2523ffd1dc%2522%252F%253E%253Ccircle%2520cx%253D%2522336%2522%2520cy%253D%2522206%2522%2520r%253D%252242%2522%2520fill%253D%2522%2523ffd1dc%2522%252F%253E%253Ccircle%2520cx%253D%2522256%2522%2520cy%253D%2522282%2522%2520r%253D%252282%2522%2520fill%253D%2522%2523ffd1dc%2522%252F%253E%253Ccircle%2520cx%253D%2522226%2522%2520cy%253D%2522282%2522%2520r%253D%252213%2522%2520fill%253D%2522%2523090b10%2522%252F%253E%253Ccircle%2520cx%253D%2522286%2522%2520cy%253D%2522282%2522%2520r%253D%252213%2522%2520fill%253D%2522%2523090b10%2522%252F%253E%253Ccircle%2520cx%253D%2522207%2522%2520cy%253D%2522234%2522%2520r%253D%252215%2522%2520fill%253D%2522%2523090b10%2522%252F%253E%253Ccircle%2520cx%253D%2522305%2522%2520cy%253D%2522234%2522%2520r%253D%252215%2522%2520fill%253D%2522%2523090b10%2522%252F%253E%253Cpath%2520d%253D%2522M205%2520356c34%252025%252070%252025%2520102%25200%2522%2520fill%253D%2522none%2522%2520stroke%253D%2522%2523090b10%2522%2520stroke-width%253D%252218%2522%2520stroke-linecap%253D%2522round%2522%252F%253E%253C%252Fsvg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fb7185%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23fbbf24%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22258%22%20r%3D%22178%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ccircle%20cx%3D%22176%22%20cy%3D%22206%22%20r%3D%2242%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22336%22%20cy%3D%22206%22%20r%3D%2242%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22282%22%20r%3D%2282%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22226%22%20cy%3D%22282%22%20r%3D%2213%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22286%22%20cy%3D%22282%22%20r%3D%2213%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22207%22%20cy%3D%22234%22%20r%3D%2215%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22305%22%20cy%3D%22234%22%20r%3D%2215%22%20fill%3D%22%23090b10%22%2F%3E%3Cpath%20d%3D%22M205%20356c34%2025%2070%2025%20102%200%22%20fill%3D%22none%22%20stroke%3D%22%23090b10%22%20stroke-width%3D%2218%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E" />
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fb7185%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23fbbf24%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22258%22%20r%3D%22178%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ccircle%20cx%3D%22176%22%20cy%3D%22206%22%20r%3D%2242%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22336%22%20cy%3D%22206%22%20r%3D%2242%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22282%22%20r%3D%2282%22%20fill%3D%22%23ffd1dc%22%2F%3E%3Ccircle%20cx%3D%22226%22%20cy%3D%22282%22%20r%3D%2213%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22286%22%20cy%3D%22282%22%20r%3D%2213%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22207%22%20cy%3D%22234%22%20r%3D%2215%22%20fill%3D%22%23090b10%22%2F%3E%3Ccircle%20cx%3D%22305%22%20cy%3D%22234%22%20r%3D%2215%22%20fill%3D%22%23090b10%22%2F%3E%3Cpath%20d%3D%22M205%20356c34%2025%2070%2025%20102%200%22%20fill%3D%22none%22%20stroke%3D%22%23090b10%22%20stroke-width%3D%2218%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E" />
+
+<title>FAT FIGHTERS | Calorie Tracker</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#090b10;color:#fff}button,input,select{font:inherit}.shell{max-width:430px;margin:0 auto;min-height:100vh;padding:18px 15px 92px;background:radial-gradient(circle at 20% -10%,#23345f 0,#111827 32%,#090b10 68%)}.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin:8px 0 18px}.hello{font-size:30px;font-weight:900;letter-spacing:-.8px}.sub{font-size:14px;color:#9ca3af;margin-top:3px}.pill{border:1px solid #284235;background:#10251c;color:#36d399;border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;white-space:nowrap}.card{background:rgba(21,26,36,.92);border:1px solid #263044;border-radius:26px;padding:18px;margin:14px 0;box-shadow:0 18px 50px rgba(0,0,0,.28);backdrop-filter:blur(14px)}.hero{padding:20px}.label{color:#9ca3af;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.5px}.big{font-size:48px;font-weight:950;letter-spacing:-2px;line-height:1.05;margin:6px 0}.muted{color:#9ca3af}.green{color:#36d399}.blue{color:#60a5fa}.orange{color:#fbbf24}.danger{color:#fb7185}.bar{height:13px;background:#2a3040;border-radius:999px;overflow:hidden;margin-top:14px}.fill{height:100%;width:0%;background:linear-gradient(90deg,#36d399,#60a5fa);transition:.25s}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:#101520;border:1px solid #252e40;border-radius:22px;padding:16px;font-weight:900;min-height:105px}.tile .emoji{font-size:25px;display:block;margin-bottom:8px}.tile .value{font-size:21px;letter-spacing:-.3px}.small{font-size:12px;color:#9ca3af;margin-top:4px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.btn{border:0;border-radius:18px;padding:15px 12px;background:#2563eb;color:#fff;font-weight:900;font-size:15px;min-height:51px}.btn:active{transform:scale(.985)}.btn.secondary{background:#1f2937;border:1px solid #30384a}.btn.greenBtn{background:#15955f}.btn.full{width:100%;margin-top:10px}.input,.select{width:100%;border:1px solid #30384a;background:#0d111a;color:#fff;border-radius:18px;padding:15px;font-size:16px;margin:9px 0;outline:none}.input:focus{border-color:#60a5fa}.row{display:flex;gap:10px}.row>*{flex:1}.log{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #252b38;padding:13px 0}.log:last-child{border-bottom:0}.logName{font-weight:800}.logMeta{font-size:12px;color:#9ca3af;margin-top:3px}.delete{background:#251722;color:#fb7185;border:1px solid #503044;border-radius:12px;padding:8px 10px;font-weight:900}.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(10,14,21,.9);border-top:1px solid #252b38;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:8px;backdrop-filter:blur(18px)}.nav button{background:#151a24;color:#d1d5db;border:1px solid #252b38;border-radius:15px;padding:10px 12px;font-weight:900}.nav button.active{background:#2563eb;color:white}.hidden{display:none!important}.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}.loginBox{max-width:390px;width:100%;text-align:left}.logo{width:72px;height:72px;border-radius:24px;background:linear-gradient(135deg,#36d399,#2563eb);display:grid;place-items:center;font-size:35px;margin-bottom:18px}.title{font-size:42px;font-weight:950;letter-spacing:-1.8px;margin:0}.toast{position:fixed;left:16px;right:16px;bottom:86px;max-width:398px;margin:auto;background:#10251c;color:#d1fae5;border:1px solid #1f5c43;border-radius:18px;padding:13px 15px;font-weight:850;box-shadow:0 15px 40px rgba(0,0,0,.4);z-index:10}.empty{color:#9ca3af;text-align:center;padding:18px 8px}.mini{display:flex;justify-content:space-between;align-items:center;gap:10px}.avatar{width:38px;height:38px;border-radius:50%;background:#1f2937}.linkBtn{background:none;border:0;color:#9ca3af;font-weight:800;padding:0}.progressLine{font-size:15px;font-weight:850;margin-top:10px}.sectionTitle{font-size:18px;font-weight:950;margin-bottom:8px}.dateNav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}.dateNav button{background:#1f2937;border:1px solid #30384a;color:white;border-radius:12px;padding:9px 11px;font-weight:900}.dateText{font-weight:900;color:#d1d5db}.kbd{background:#0d111a;border:1px solid #30384a;border-radius:14px;padding:10px 12px;color:#d1d5db;font-size:13px;margin-top:10px}
+.pigLogo{background:linear-gradient(135deg,#fb7185,#fbbf24);font-size:38px}.brandCard{display:flex;align-items:center;gap:14px}.mascot{width:74px;height:74px;border-radius:24px;background:linear-gradient(135deg,#fb7185,#fbbf24);display:grid;place-items:center;font-size:42px;box-shadow:0 16px 36px rgba(251,113,133,.18)}.brandName{font-size:26px;font-weight:950;letter-spacing:-.7px}.friendBox{border:1px dashed #3b465c;background:#0d111a;border-radius:22px;padding:16px;margin-top:12px}.friendBox b{display:block;margin-bottom:5px}.installTip{border-color:#345241;background:rgba(16,37,28,.92)}@media all and (display-mode:standalone){.installTip{display:none!important}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+  <div class="loginBox">
+    <div class="logo pigLogo">🐷</div>
+    <h1 class="title">FAT FIGHTERS</h1>
+    <p class="sub" style="font-size:17px;line-height:1.45">A funny, simple calorie tracker for normal food, pub drinks, meal deals and festival damage control.</p>
+    <button id="googleBtn" class="btn greenBtn full">Continue with Google</button>
+  </div>
+</div>
+
+<div id="app" class="shell hidden">
+  <div class="top">
+    <div><div class="hello" id="helloName">FAT FIGHTERS 👋</div><div class="sub" id="subtitle">Lose a stone tracker</div></div>
+    <div class="mini"><button id="signOutBtn" class="linkBtn">Sign out</button><img id="avatar" class="avatar" /></div>
+  </div>
+
+  <section id="homePage">
+    <div class="dateNav"><button id="prevDay">‹</button><div class="dateText" id="dateLabel">Today</div><button id="nextDay">›</button></div>
+    <div class="card brandCard">
+      <div class="mascot">🐷</div>
+      <div><div class="brandName">FAT FIGHTERS</div><div class="sub">Track the damage. Beat the pig.</div></div>
+    </div>
+    <div id="installTip" class="card installTip">
+      <div class="sectionTitle">📱 Save me to your Home Screen</div>
+      <div class="muted" style="line-height:1.45">Tap Share → Add to Home Screen. It will open like an app called <b>FAT FIGHTERS</b>.</div>
+    </div>
+    <div class="card hero">
+      <div class="label">Today’s calories</div>
+      <div class="big"><span id="eaten">0</span> <span class="muted" style="font-size:20px">/ <span id="targetHero">2000</span></span></div>
+      <div id="remaining" class="green">2000 calories remaining</div>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="grid">
+      <div class="tile"><span class="emoji">⚖️</span><div class="value" id="currentWeight">15st 7lb</div><div class="small">Current</div></div>
+      <div class="tile"><span class="emoji">🎯</span><div class="value" id="goalWeight">14st 7lb</div><div class="small">Goal</div></div>
+      <div class="tile"><span class="emoji">📉</span><div class="value" id="remainingWeight">14lb</div><div class="small">Remaining</div></div>
+      <div class="tile"><span class="emoji">🍺</span><div class="value" id="drinkCount">0</div><div class="small">Alcohol today</div></div>
+    </div>
+    <div class="card">
+      <div class="sectionTitle">Quick add</div>
+      <div class="quick">
+        <button class="btn" data-quick="Bacon roll|420|food">🍳 Bacon roll</button>
+        <button class="btn" data-quick="Meal deal|550|food">🥪 Meal deal</button>
+        <button class="btn" data-quick="Pint cider|240|drink">🍺 Pint cider</button>
+        <button class="btn" data-quick="Double vodka & Diet Coke|110|drink">🥃 Double vodka & Diet Coke</button>
+      </div>
+    </div>
+    <div class="card"><div class="sectionTitle">Today’s log</div><div id="homeLog"></div></div>
+  </section>
+
+  <section id="addPage" class="hidden">
+    <div class="card">
+      <div class="sectionTitle">Add food or drink</div>
+      <input id="entryName" class="input" placeholder="e.g. ham sandwich and crisps" />
+      <div class="row"><input id="entryCalories" class="input" inputmode="numeric" placeholder="Calories" /><select id="entryType" class="select"><option value="food">Food</option><option value="drink">Drink</option></select></div>
+      <button id="estimateBtn" class="btn secondary full">Guess calories</button>
+      <button id="saveEntryBtn" class="btn greenBtn full">Save entry</button>
+      <div class="kbd">Rough guesses are fine. Being consistent beats being perfect.</div>
+    </div>
+    <div class="card"><div class="sectionTitle">Drink shortcuts</div><div class="quick"><button class="btn secondary" data-quick="Lager pint|200|drink">🍺 Lager</button><button class="btn secondary" data-quick="Cider pint|240|drink">🍏 Cider</button><button class="btn secondary" data-quick="Double vodka & Diet Coke|110|drink">🥃 Double vodka</button><button class="btn secondary" data-quick="Rum diet coke|85|drink">🥃 Rum diet</button></div></div>
+  </section>
+
+  <section id="weightPage" class="hidden">
+    <div class="card">
+      <div class="sectionTitle">Weigh in</div>
+      <div class="row"><input id="stoneInput" class="input" inputmode="numeric" placeholder="Stone" /><input id="lbInput" class="input" inputmode="numeric" placeholder="Pounds" /></div>
+      <button id="saveWeightBtn" class="btn greenBtn full">Save weight</button>
+      <div class="progressLine" id="weightProgress">0lb lost</div>
+      <div class="bar"><div class="fill" id="weightFill"></div></div>
+    </div>
+    <div class="card"><div class="sectionTitle">Recent weigh-ins</div><div id="weightLog"></div></div>
+  </section>
+
+
+  <section id="friendsPage" class="hidden">
+    <div class="card">
+      <div class="sectionTitle">Friends</div>
+      <p class="muted" style="line-height:1.45;margin-top:0">Coming next: add friends, compare progress, and cheer each other on without making it weird.</p>
+      <div class="friendBox"><b>👥 Friend list</b><span class="muted">Placeholder ready for v1.2.</span></div>
+      <div class="friendBox"><b>🏆 Mini leaderboard</b><span class="muted">Progress sharing will live here.</span></div>
+      <div class="friendBox"><b>💬 Nudges</b><span class="muted">Supportive reminders, not diet-police nonsense.</span></div>
+    </div>
+  </section>
+
+  <section id="settingsPage" class="hidden">
+    <div class="card">
+      <div class="sectionTitle">Settings</div>
+      <input id="targetInput" class="input" inputmode="numeric" placeholder="Daily calorie target" />
+      <div class="row"><input id="goalStoneInput" class="input" inputmode="numeric" placeholder="Goal stone" /><input id="goalLbInput" class="input" inputmode="numeric" placeholder="Goal lb" /></div>
+      <button id="saveSettingsBtn" class="btn greenBtn full">Save settings</button>
+    </div>
+  </section>
+</div>
+
+<div id="nav" class="nav hidden"><button data-page="homePage" class="active">Home</button><button data-page="addPage">Add</button><button data-page="weightPage">Weight</button><button data-page="friendsPage">Friends</button><button data-page="settingsPage">Settings</button></div>
+<div id="toast" class="toast hidden"></div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, deleteDoc, onSnapshot, query, orderBy, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBAAVYUCieImvF2LPFo1cqjJbkeDr54jEg",
+  authDomain: "calorie-tracker-james.firebaseapp.com",
+  projectId: "calorie-tracker-james",
+  storageBucket: "calorie-tracker-james.firebasestorage.app",
+  messagingSenderId: "518319007961",
+  appId: "1:518319007961:web:2834985ddb2f8dbdf7f6c8"
+};
+
+const app = initializeApp(firebaseConfig), auth = getAuth(app), db = getFirestore(app), provider = new GoogleAuthProvider();
+let user=null, settings={target:2000,startLb:217,currentLb:217,goalLb:203}, entries=[], weights=[], selectedDate=new Date(), unsubEntries=null, unsubWeights=null;
+const $=id=>document.getElementById(id);
+const dateKey=d=>{const x=new Date(d);x.setMinutes(x.getMinutes()-x.getTimezoneOffset());return x.toISOString().slice(0,10)};
+const fmtWeight=lb=>`${Math.floor(lb/14)}st ${lb%14}lb`;
+const toast=m=>{const t=$('toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2400)};
+const todayKey=()=>dateKey(selectedDate);
+const firstName=()=>((user?.displayName||user?.email||'Fighter').split(/[\s@]/)[0]||'Fighter');
+const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+if(isStandalone()&&$('installTip')) $('installTip').classList.add('hidden');
+function niceDate(){const t=dateKey(new Date()), k=todayKey(); if(k===t)return 'Today'; const y=new Date();y.setDate(y.getDate()-1); if(k===dateKey(y))return 'Yesterday'; return selectedDate.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});} 
+
+$('googleBtn').onclick=()=>signInWithPopup(auth,provider).catch(e=>toast(e.message));
+$('signOutBtn').onclick=()=>signOut(auth);
+$('prevDay').onclick=()=>{selectedDate.setDate(selectedDate.getDate()-1);listenEntries();render()};
+$('nextDay').onclick=()=>{selectedDate.setDate(selectedDate.getDate()+1);listenEntries();render()};
+
+onAuthStateChanged(auth, async u=>{
+  user=u;
+  if(!u){$('login').classList.remove('hidden');$('app').classList.add('hidden');$('nav').classList.add('hidden');return}
+  $('login').classList.add('hidden');$('app').classList.remove('hidden');$('nav').classList.remove('hidden');$('avatar').src=u.photoURL||'';
+  $('helloName').textContent=`Hi ${firstName()} 👋`;
+  $('subtitle').textContent='FAT FIGHTERS calorie tracker';
+  await loadSettings(); listenEntries(); listenWeights();
+});
+
+async function loadSettings(){
+ const ref=doc(db,'users',user.uid); const snap=await getDoc(ref);
+ if(snap.exists()) settings={...settings,...snap.data()}; else await setDoc(ref,{...settings,email:user.email,name:user.displayName,createdAt:serverTimestamp()},{merge:true});
+ $('targetInput').value=settings.target; $('goalStoneInput').value=Math.floor(settings.goalLb/14); $('goalLbInput').value=settings.goalLb%14; $('stoneInput').value=Math.floor(settings.currentLb/14); $('lbInput').value=settings.currentLb%14; render();
+}
+function listenEntries(){ if(!user)return; if(unsubEntries)unsubEntries(); const q=query(collection(db,'users',user.uid,'days',todayKey(),'entries'),orderBy('createdAt','desc')); unsubEntries=onSnapshot(q,s=>{entries=s.docs.map(d=>({id:d.id,...d.data()}));render();},e=>toast(e.message)); }
+function listenWeights(){ if(!user)return; if(unsubWeights)unsubWeights(); const q=query(collection(db,'users',user.uid,'weights'),orderBy('createdAt','desc')); unsubWeights=onSnapshot(q,s=>{weights=s.docs.map(d=>({id:d.id,...d.data()})); if(weights[0]?.lb){settings.currentLb=weights[0].lb; setDoc(doc(db,'users',user.uid),{currentLb:settings.currentLb},{merge:true});} render();},e=>toast(e.message)); }
+
+function estimateText(v){v=(v||'').toLowerCase(); let c=450; if(/meal deal|sandwich|wrap/.test(v))c=550; if(/bacon|sausage|roll/.test(v))c=420; if(/mcdonald|kfc|burger|chips|pizza/.test(v))c=900; if(/cider|strongbow/.test(v))c=240; if(/lager|beer|pint/.test(v))c=200; if(/vodka|gin|rum/.test(v))c=80; if(/banana|apple|fruit/.test(v))c=120; if(/crisps|quavers|wotsits|skips/.test(v))c+=120; if(/latte|cappuccino/.test(v))c+=160; return c;}
+$('estimateBtn').onclick=()=>{const v=$('entryName').value; $('entryCalories').value=estimateText(v); toast('Estimated calories added to box')};
+$('saveEntryBtn').onclick=()=>saveEntry($('entryName').value,+$('entryCalories').value||estimateText($('entryName').value),$('entryType').value);
+document.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{const [n,c,t]=b.dataset.quick.split('|');saveEntry(n,+c,t)});
+async function saveEntry(name,calories,type='food'){ if(!name)return toast('Add a name first'); await addDoc(collection(db,'users',user.uid,'days',todayKey(),'entries'),{name,calories,type,createdAt:serverTimestamp()}); $('entryName').value='';$('entryCalories').value='';toast('Saved'); }
+window.delEntry=async id=>{await deleteDoc(doc(db,'users',user.uid,'days',todayKey(),'entries',id));toast('Deleted')};
+$('saveWeightBtn').onclick=async()=>{const lb=(+$('stoneInput').value*14)+(+$('lbInput').value||0); if(!lb)return; await addDoc(collection(db,'users',user.uid,'weights'),{lb,createdAt:serverTimestamp(),date:dateKey(new Date())}); settings.currentLb=lb; await setDoc(doc(db,'users',user.uid),{currentLb:lb},{merge:true}); toast('Weight saved')};
+$('saveSettingsBtn').onclick=async()=>{settings.target=+$('targetInput').value||2000; settings.goalLb=((+$('goalStoneInput').value||14)*14)+(+$('goalLbInput').value||7); await setDoc(doc(db,'users',user.uid),settings,{merge:true}); toast('Settings saved'); render();};
+
+document.querySelectorAll('#nav button').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));$(btn.dataset.page).classList.remove('hidden');document.querySelectorAll('#nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')});
+function render(){
+ $('dateLabel').textContent=niceDate(); $('targetHero').textContent=settings.target; $('currentWeight').textContent=fmtWeight(settings.currentLb); $('goalWeight').textContent=fmtWeight(settings.goalLb); const remLb=Math.max(0,settings.currentLb-settings.goalLb); $('remainingWeight').textContent=remLb+'lb';
+ const eaten=entries.reduce((a,e)=>a+(+e.calories||0),0), drinks=entries.filter(e=>e.type==='drink').length, remain=settings.target-eaten; $('eaten').textContent=eaten; $('remaining').textContent=remain>=0?`${remain} calories remaining`:`${Math.abs(remain)} over target`; $('remaining').className=remain>=0?'green':'danger'; $('fill').style.width=Math.min(100,(eaten/settings.target)*100)+'%'; $('drinkCount').textContent=drinks;
+ const logHtml=entries.length?entries.map(e=>`<div class="log"><div><div class="logName">${escapeHtml(e.name)}</div><div class="logMeta">${e.type==='drink'?'Drink':'Food'}</div></div><div style="display:flex;align-items:center;gap:8px"><b>${e.calories}</b><button class="delete" onclick="delEntry('${e.id}')">×</button></div></div>`).join(''):'<div class="empty">Nothing logged yet.</div>'; $('homeLog').innerHTML=logHtml;
+ const lost=Math.max(0,settings.startLb-settings.currentLb), total=Math.max(1,settings.startLb-settings.goalLb); $('weightProgress').textContent=`${lost}lb lost • ${remLb}lb to go`; $('weightFill').style.width=Math.min(100,(lost/total)*100)+'%';
+ $('weightLog').innerHTML=weights.length?weights.slice(0,8).map(w=>`<div class="log"><span>${fmtWeight(w.lb)}</span><b>${w.date||''}</b></div>`).join(''):'<div class="empty">No weigh-ins yet.</div>';
+}
+function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+</script>
+</body>
+</html>
