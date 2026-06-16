@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>James Calorie Tracker</title>
+<style>
+  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#090b10;color:#fff} .app{max-width:430px;margin:0 auto;min-height:100vh;padding:20px 16px 90px;background:linear-gradient(180deg,#111827 0%,#090b10 45%)} .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.hello{font-size:28px;font-weight:800}.sub{color:#9ca3af;font-size:14px}.card{background:#151a24;border:1px solid #252b38;border-radius:24px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.25)}.big{font-size:42px;font-weight:900;letter-spacing:-1px}.green{color:#36d399}.muted{color:#9ca3af}.bar{height:12px;background:#2a3040;border-radius:999px;overflow:hidden;margin-top:12px}.fill{height:100%;width:0%;background:linear-gradient(90deg,#36d399,#60a5fa)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:#101520;border:1px solid #252b38;border-radius:20px;padding:16px;font-weight:700}.tile span{display:block;font-size:26px;margin-bottom:8px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.btn{border:0;border-radius:18px;padding:15px;background:#2563eb;color:white;font-weight:800;font-size:15px}.btn.secondary{background:#1f2937}.btn.danger{background:#7f1d1d}.input{width:100%;border:1px solid #30384a;background:#0d111a;color:white;border-radius:18px;padding:15px;font-size:16px;margin:10px 0}.log{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #252b38;padding:12px 0;gap:12px}.log small{display:block;color:#9ca3af}.nav{position:fixed;left:0;right:0;bottom:0;background:#101520;border-top:1px solid #252b38;padding:10px 16px;display:flex;justify-content:center;gap:10px}.nav button{background:#151a24;color:white;border:1px solid #252b38;border-radius:14px;padding:10px 12px;font-weight:700}.small{font-size:12px;color:#9ca3af}.pill{background:#193828;color:#36d399;border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}.hidden{display:none}.link{color:#93c5fd;text-decoration:underline}.row{display:flex;gap:10px}.row>*{flex:1}.signout{background:transparent;border:1px solid #30384a;color:#9ca3af;border-radius:12px;padding:8px 10px}.error{background:#3b1111;border:1px solid #7f1d1d;color:#fecaca;border-radius:16px;padding:12px;margin:12px 0;font-size:14px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div id="loginScreen">
+    <div class="top"><div><div class="hello">James</div><div class="sub">Simple calorie tracking, no nonsense.</div></div><div class="pill">🔥 2000/day</div></div>
+    <div class="card">
+      <div class="big">Lose a stone</div>
+      <p class="muted">Track food, drinks and weight using your Google login. Data saves to Firebase.</p>
+      <button class="btn" style="width:100%" id="googleBtn">Continue with Google</button>
+      <div id="loginError" class="error hidden"></div>
+    </div>
+  </div>
+
+  <div id="mainApp" class="hidden">
+    <div class="top"><div><div class="hello">James 👋</div><div class="sub" id="dateText">Today</div></div><button class="signout" id="signOutBtn">Sign out</button></div>
+    <div id="appError" class="error hidden"></div>
+    <div class="card">
+      <div class="muted">Today’s calories</div>
+      <div class="big"><span id="eaten">0</span> <span class="muted" style="font-size:20px">/ <span id="target">2000</span></span></div>
+      <div class="green" id="remaining">2000 calories remaining</div>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="grid">
+      <div class="tile"><span>⚖️</span><span id="weightNow">15st 7lb</span><div class="small">Current</div></div>
+      <div class="tile"><span>🎯</span>14st 7lb<div class="small">Goal</div></div>
+      <div class="tile"><span>💪</span><span id="protein">0g</span><div class="small">Protein</div></div>
+      <div class="tile"><span>🍺</span><span id="drinks">0</span><div class="small">Drinks this week</div></div>
+    </div>
+    <div class="card"><b>Quick add</b><div class="quick">
+      <button class="btn" onclick="quickAdd('Bacon roll',420,'Breakfast')">🍳 Bacon roll</button>
+      <button class="btn" onclick="quickAdd('Meal deal',550,'Lunch')">🥪 Meal deal</button>
+      <button class="btn" onclick="quickAdd('Pint cider',240,'Drinks',1)">🍺 Pint cider</button>
+      <button class="btn" onclick="quickAdd('Vodka diet coke',75,'Drinks',1)">🥃 Vodka Diet</button>
+    </div></div>
+    <div class="card"><b>Type what you had</b><input id="food" class="input" placeholder="e.g. ham sandwich and crisps" /><button class="btn secondary" style="width:100%" onclick="estimateAndAdd()">Estimate & add</button></div>
+    <div class="card"><b>Weigh in</b><div class="row"><input id="stone" class="input" inputmode="numeric" placeholder="Stone" value="15"><input id="pounds" class="input" inputmode="numeric" placeholder="lb" value="7"></div><button class="btn secondary" style="width:100%" onclick="saveWeight()">Save weight</button></div>
+    <div class="card"><b>Today’s log</b><div id="log"><div class="muted" style="padding-top:10px">Nothing logged yet.</div></div></div>
+  </div>
+</div>
+<div class="nav"><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</button><button onclick="document.getElementById('food')?.focus()">Food</button><button onclick="document.getElementById('stone')?.focus()">Weight</button></div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+  import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+
+  // PASTE YOUR FIREBASE CONFIG HERE - replace the values below
+  const firebaseConfig = {
+    apiKey: "PASTE_API_KEY_HERE",
+    authDomain: "calorie-tracker-james.firebaseapp.com",
+    projectId: "calorie-tracker-james",
+    storageBucket: "calorie-tracker-james.firebasestorage.app",
+    messagingSenderId: "518319007961",
+    appId: "PASTE_APP_ID_HERE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const provider = new GoogleAuthProvider();
+  const target = 2000;
+  let currentUser = null, logs = [];
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('dateText').textContent = new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'});
+
+  function showError(id,msg){ const el=document.getElementById(id); el.textContent=msg; el.classList.remove('hidden'); }
+  function clearErrors(){ ['loginError','appError'].forEach(id=>document.getElementById(id).classList.add('hidden')); }
+
+  document.getElementById('googleBtn').onclick = async () => {
+    clearErrors();
+    try { await signInWithPopup(auth, provider); }
+    catch(e){
+      try { await signInWithRedirect(auth, provider); }
+      catch(err){ showError('loginError', err.message); }
+    }
+  };
+  document.getElementById('signOutBtn').onclick = () => signOut(auth);
+  try { await getRedirectResult(auth); } catch(e) {}
+
+  onAuthStateChanged(auth, async (user)=>{
+    currentUser = user;
+    document.getElementById('loginScreen').classList.toggle('hidden', !!user);
+    document.getElementById('mainApp').classList.toggle('hidden', !user);
+    if(user){ await loadProfile(); listenLogs(); }
+  });
+
+  async function loadProfile(){
+    const ref = doc(db,'users',currentUser.uid);
+    const snap = await getDoc(ref);
+    if(!snap.exists()) await setDoc(ref,{target, startStone:15, startPounds:7, goalStone:14, goalPounds:7, createdAt:serverTimestamp()});
+  }
+
+  function listenLogs(){
+    const q = query(collection(db,'users',currentUser.uid,'logs'), where('date','==',today), orderBy('createdAt','desc'));
+    onSnapshot(q, (snapshot)=>{ logs = snapshot.docs.map(d=>({id:d.id,...d.data()})); render(); }, (err)=>showError('appError',err.message));
+  }
+
+  function render(){
+    const eaten = logs.reduce((sum,x)=>sum+(Number(x.calories)||0),0);
+    const protein = logs.reduce((sum,x)=>sum+(Number(x.protein)||0),0);
+    const drinks = logs.reduce((sum,x)=>sum+(Number(x.drinks)||0),0);
+    document.getElementById('eaten').textContent = eaten;
+    document.getElementById('target').textContent = target;
+    document.getElementById('remaining').textContent = Math.max(0,target-eaten)+' calories remaining';
+    document.getElementById('fill').style.width = Math.min(100,eaten/target*100)+'%';
+    document.getElementById('protein').textContent = protein+'g';
+    document.getElementById('drinks').textContent = drinks;
+    const logEl=document.getElementById('log');
+    if(!logs.length){ logEl.innerHTML='<div class="muted" style="padding-top:10px">Nothing logged yet.</div>'; return; }
+    logEl.innerHTML = logs.map(x=>`<div class="log"><span>${escapeHtml(x.name)}<small>${x.meal||'Food'}</small></span><b>${x.calories}</b></div>`).join('');
+  }
+
+  function escapeHtml(str){ return String(str).replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+  function estimateCalories(v){
+    let c=450, p=20;
+    if(/cider|strongbow|pint|beer|lager/i.test(v)){c=240;p=0}
+    if(/vodka|gin|rum/i.test(v)){c=80;p=0}
+    if(/mcdonald|burger|chips|kebab|pizza/i.test(v)){c=900;p=30}
+    if(/sandwich|wrap|meal deal/i.test(v)){c=550;p=25}
+    if(/banana|fruit/i.test(v)){c=120;p=1}
+    if(/chicken|turkey|ham/i.test(v)){p=35}
+    return {calories:c, protein:p};
+  }
+
+  window.quickAdd = async (name, calories, meal='Food', drinks=0) => {
+    if(!currentUser) return;
+    await addDoc(collection(db,'users',currentUser.uid,'logs'),{name,calories,protein: meal==='Drinks'?0:20,drinks,date:today,meal,createdAt:serverTimestamp()});
+  };
+  window.estimateAndAdd = async () => {
+    const v=document.getElementById('food').value.trim(); if(!v||!currentUser)return;
+    const est=estimateCalories(v);
+    await addDoc(collection(db,'users',currentUser.uid,'logs'),{name:v,calories:est.calories,protein:est.protein,drinks:/cider|pint|beer|lager|vodka|gin|rum/i.test(v)?1:0,date:today,meal:'Typed entry',createdAt:serverTimestamp()});
+    document.getElementById('food').value='';
+  };
+  window.saveWeight = async () => {
+    if(!currentUser) return;
+    const stone=Number(document.getElementById('stone').value||0), pounds=Number(document.getElementById('pounds').value||0);
+    document.getElementById('weightNow').textContent = `${stone}st ${pounds}lb`;
+    await addDoc(collection(db,'users',currentUser.uid,'weights'),{stone,pounds,totalPounds:(stone*14)+pounds,date:today,createdAt:serverTimestamp()});
+  };
+</script>
+</body>
+</html>
